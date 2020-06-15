@@ -33,7 +33,7 @@
   - Rubocop
 
 ## アーキテクチャ
-![aws構成図](81079286-58d56580-8f2a-11ea-9cdd-35169ccefb77.png)
+![aws構成図](https://user-images.githubusercontent.com/62534064/84650241-cff71400-af42-11ea-92b4-32a6ce468512.png)
 
 ## 機能一覧  
 ### ユーザー機能  
