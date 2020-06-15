@@ -1,0 +1,59 @@
+version: 2.1
+
+executors:  
+  default:  
+    working_directory: ~/campgears
+    docker:
+      - image: circleci/ruby:2.5.8-node-browsers
+        environment:
+          RAILS_ENV: test
+      - image: circleci/mysql:5.7
+        environment:
+          MYSQL_ROOT_PASSWORD: 'password'
+          MYSQL_DATABASE: campgears_test
+commands:  
+  setup:  
+    steps:
+      - checkout
+      - restore_cache:
+          name: bundle installの結果をrestore
+          keys:
+          - v1-dependencies-{{ checksum "Gemfile.lock" }}
+          - v1-dependencies-
+      - run:
+          name: bundle installを実行
+          command: |
+            gem update --system
+            gem install bundler
+      - run:
+          name: install dependencies
+          command: |
+            bundle install --jobs=4 --retry=3 --path vendor/bundle
+      - save_cache:
+          name: bundle installの結果をキャッシュ
+          paths:
+            - ./vendor/bundle
+          key: v1-dependencies-{{ checksum "Gemfile.lock" }}
+
+jobs:  
+  test:  
+    executor: default  
+    environment:  
+      RAILS_ENV: test  
+    steps:  
+      - checkout  
+      - setup  
+      - run:
+          name: データベースの起動を待機
+          command: dockerize -wait tcp://127.0.0.1:3306 -timeout 1m
+      - run:
+          name: データベースのセットアップ
+          command: bundle exec rake db:create db:migrate db:schema:load --trace
+      - run: 
+          name: テストの実行
+          command: bundle exec rspec
+
+workflows:  
+  test:  
+    jobs:  
+      - test
