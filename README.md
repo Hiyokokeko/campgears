@@ -1,24 +1,52 @@
-# README
+# Camp Gears
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+おすすめのキャンプギアや自分の愛用ギアを共有できる投稿サイトです。  
 
-Things you may want to cover:
+![campgears](ホームの画像を貼り付け)
 
-* Ruby version
+## URL
+<デプロイ後URL貼り付け>  
+トップページの「**ゲストログイン**」をクリックするとメールアドレスやパスワードを入力せずにログインが可能です。  
+  
+## 使用技術(あくまで予定)
+### フロントエンド
+  - bootstrap3
+  - scss
+  - JQuery
 
-* System dependencies
+### バックエンド
+  - Ruby  2.5.8
+  - Rails 5.2.4
 
-* Configuration
+### サーバー
+  - Nginx 1.16.1
 
-* Database creation
+### DB
+  - MySQL 5.7
 
-* Database initialization
+### インフラ・開発環境等
+  - Docker/docker-compose
+  - AWS（VPC, EC2, RDS, S3, Route 53, ALB, ACM）
+  - CircleCI（CI/CD)
+  - Capistrano3
+  - RSpec
+  - Rubocop
 
-* How to run the test suite
+## アーキテクチャ
+![aws構成図](構成図を貼り付け)
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## 機能一覧  
+### ユーザー機能  
+  - 新規登録
+  - ログイン/ログアウト  
+  - ユーザー編集  
+  - フォロー/アンフォロー
+### 記事投稿機能  
+  - 記事の編集/削除  
+  - 画像投稿  
+  - いいね・コメント  
+### 記事表示機能 
+- カテゴリー別表示
+- 検索機能  
+- いいね数によるランキング表示
+- ページネーション
