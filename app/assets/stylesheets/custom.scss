@@ -1,2 +1,48 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+// 全てに適応
+body {
+  color: #666;
+  background-color: #fffafa;
+}
+
+// header
+#logo {
+  font-size: 1.8em;
+  font-weight: bold;
+  color: #49653f;
+  float: left;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  margin-right: 10px;
+  letter-spacing: -1px;
+  padding-top: 0;
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+.navbar {
+  line-height: 0;
+  min-height: 0;
+  margin-top: 0;
+  font-size: 15px;
+  padding: 0;
+}
+.navbar-default {
+  background-color: #fafad2;
+}
+
+// footer
+body,
+#wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+footer {
+  text-align: center;
+  margin-top: auto;
+}
