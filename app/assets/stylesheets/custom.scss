@@ -118,3 +118,30 @@ input, textarea, select, .uneditable-input {
   width: 100%;
   margin-bottom: 15px;
 }
+
+.login{
+  .checkbox {
+    margin-top: -10px;
+    margin-bottom: 10px;
+    span {
+      margin-left: 20px;
+      font-weight: normal;
+    }
+  }
+}
+
+#session_remember_me {
+  width: auto;
+  margin-left: 0;
+}
+
+// ログイン画面
+.login{
+  margin-top: 2em;
+  margin-left: 15em;
+  margin-right: 15em;
+  text-align:center;
+  .btn{
+    width: 50%;
+  }
+}
