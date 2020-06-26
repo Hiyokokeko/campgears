@@ -1,8 +1,34 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-// 全てに適応
+/* mixins, variables, etc. */
+$gray-medium-light: #eaeaea;
+
+@mixin box_sizing {
+  -moz-box-sizing:    border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing:         border-box;
+}
+
+section {
+  overflow: auto;
+}
+
+textarea {
+  resize: vertical;
+}
+
+.center {
+  text-align: center;
+  h1 {
+    margin: 0;
+  }
+}
+
+/* 全てに適用 */
 body {
+  margin-top: 0;
+  padding: 0;
   color: #666;
   background-color: #fffafa;
 }
@@ -22,7 +48,7 @@ body {
   }
 }
 
-// タイポグラフィ
+/* タイポグラフィー */
 h1, h2, h3, h4, h5, h6 {
   line-height: 1;
 }
@@ -40,6 +66,12 @@ h2 {
   margin-top: 0;
   margin-bottom: 1em;
   text-align: center;
+  font-weight: normal;
+  color: $gray-light;
+}
+
+h3{
+  text-align: center;
 }
 
 p {
@@ -48,7 +80,11 @@ p {
   text-align: center;
 }
 
-// header
+a{
+  color: #666;
+}
+
+/* ヘッダー */
 #logo {
   font-size: 1.7em;
   font-weight: bold;
@@ -72,11 +108,19 @@ p {
   font-size: 15px;
   padding: 0;
 }
+
 .navbar-default {
   background-color: #fafad2;
 }
 
-// footer
+.navbar-text{
+  margin-top: 0;
+  font-size: 15px;
+  padding: 0;
+  text-align: left;
+}
+
+/*footer*/
 body,
 #wrapper {
   display: flex;
@@ -88,9 +132,9 @@ footer {
   margin-top: auto;
 }
 
-// category
+/*カテゴリードロップダウンメニュー*/
 .category{
-  margin-left: 28.5em;
+  margin-left: 15em;
   .btn{
     padding: 0.5em;
   }
@@ -99,9 +143,12 @@ footer {
     margin-bottom: 0;
     padding-left: 60px;
   }
+  input, textarea, select, .uneditable-input{
+    margin-bottom: 0px;
+  }
 }
 
-// 新規ユーザー登録
+/*新規ユーザー登録*/
 .users_new{
   margin-top: 2em;
   margin-left: 15em;
@@ -112,9 +159,37 @@ footer {
   }
 }
 
-// フォーム
+/* フォーム */
 input, textarea, select, .uneditable-input {
   border: 1px solid #bbb;
   width: 100%;
   margin-bottom: 15px;
+  @include box_sizing;
+}
+
+.login{
+  .checkbox {
+    margin-top: -10px;
+    margin-bottom: 10px;
+    span {
+      margin-left: 20px;
+      font-weight: normal;
+    }
+  }
+}
+
+#session_remember_me {
+  width: auto;
+  margin-left: 0;
+}
+
+/*ログイン画面*/
+.login{
+  margin-top: 2em;
+  margin-left: 15em;
+  margin-right: 15em;
+  text-align:center;
+  .btn{
+    width: 50%;
+  }
 }

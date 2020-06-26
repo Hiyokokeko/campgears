@@ -1,2 +1,25 @@
-<h1>Sessions#new</h1>
-<p>Find me in app/views/sessions/new.html.erb</p>
+<% provide(:title, "ログイン") %>
+<h1>ログイン</h1>
+
+<div class="login">
+<div class="col-md-6 col-md-offset-3">
+    <%= form_for(:session, url: login_path) do |f| %>
+
+      <%= f.label :メールアドレス %>
+      <%= f.email_field :email, class: 'form-control' %>
+
+      <%= f.label :パスワード %>
+      <%= link_to "(パスワードを忘れた場合)", "#" %>
+      <%= f.password_field :password, class: 'form-control' %>
+
+      <%= f.label :remember_me, class: "checkbox inline" do %>
+        <%= f.check_box :remember_me %>
+        <span>ログイン状態を保存する</span>
+      <% end %>
+      
+      <%= f.submit "ログイン", class: "btn btn-primary" %>
+    <% end %>
+
+    <%= link_to "新規ユーザー登録はこちら", signup_path %>
+</div>
+</div>
