@@ -10,6 +10,7 @@ $gray-medium-light: #eaeaea;
   box-sizing:         border-box;
 }
 
+/* 全てに適用 */
 section {
   overflow: auto;
 }
@@ -25,7 +26,6 @@ textarea {
   }
 }
 
-/* 全てに適用 */
 body {
   margin-top: 0;
   padding: 0;
@@ -165,6 +165,25 @@ input, textarea, select, .uneditable-input {
   width: 100%;
   margin-bottom: 15px;
   @include box_sizing;
+}
+
+input {
+  height: auto !important;
+}
+#error_explanation {
+  color: #a94442;
+  ul {
+    color: #a94442;
+    margin: 0 0 30px 0;
+  }
+}
+
+.field_with_errors {
+  @extend .has-error;
+  .form-control {
+    color: #a94442;
+    display: table;
+  }
 }
 
 .login{
