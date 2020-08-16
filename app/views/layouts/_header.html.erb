@@ -24,7 +24,7 @@
                 <li role="presentation"><%= link_to "投稿した記事一覧", "#" %></li>
                 <li role="presentation"><%= link_to "いいねした記事一覧", "#" %></li>
                 <li role="presentation"><%= link_to "プロフィール編集", "#" %></li>
-                <li role="presentation"><%= link_to "ログアウト", "#" %></li>
+                <li role="presentation"><%= link_to "ログアウト", logout_path, method: :delete %></li>
               </ul>
             <li><%= link_to "新規ユーザー登録", new_user_path %></li>
             <li><%= link_to "ログイン", login_path %></li>
