@@ -33,7 +33,7 @@
           <% else %>
             <li><%= link_to "新規ユーザー登録", new_user_path %></li>
             <li><%= link_to "ログイン", login_path %></li>
-            <li><%= link_to 'ゲストログイン', "#" %></li>
+            <li><%= link_to 'ゲストログイン', guest_login_path, method: :post %></li>
           <% end %>
       </ul>
     </div>
