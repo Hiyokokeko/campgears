@@ -132,6 +132,28 @@ footer {
   margin-top: auto;
 }
 
+/* デバック */
+.debug_dump {
+  clear: both;
+  float: left;
+  width: 100%;
+  margin-top: 45px;
+  @include box_sizing;
+}
+
+/*gravatarいじらない*/
+.gravatar {
+  margin-right: 0em;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-top: 0em;
+  margin-bottom: 0em;
+}
+.user{
+  margin-top: 0em;
+  margin-bottom: 0em;
+}
+
 /*カテゴリードロップダウンメニュー*/
 .category{
   margin-left: 15em;
@@ -210,5 +232,21 @@ input {
   text-align:center;
   .btn{
     width: 50%;
+  }
+}
+
+/*プロフィール編集*/
+.users_edit{
+  margin-left: 20em;
+  margin-right: 20em;
+  .gravatar_edit{
+  margin-top: 3em;
+  margin-bottom: 2em;
+  text-align: center;
+  border-radius: 50%;
+  object-fit: cover;
+  }
+  .btn{
+    width: 30%;
   }
 }
