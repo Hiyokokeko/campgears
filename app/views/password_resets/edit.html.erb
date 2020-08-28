@@ -1,0 +1,20 @@
+<% provide(:title, "パスワードのリセット") %>
+<h1>パスワードをリセットする</h1>
+
+<div class="password_reset">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for(@user, url: password_reset_path(params[:id])) do |f| %>
+      <%= render 'shared/error_messages', object: f.object %>
+
+      <%= hidden_field_tag :email, @user.email %>
+
+      <%= f.label :新しいパスワード %>
+      <%= f.password_field :password, class: 'form-control' %>
+
+      <%= f.label :パスワード確認用, "パスワード確認用" %>
+      <%= f.password_field :password_confirmation, class: 'form-control' %>
+
+      <%= f.submit "パスワードを変更する", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>
