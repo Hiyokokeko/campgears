@@ -22,7 +22,7 @@
             <span class="caret"></span>
               <ul class="dropdown-menu" role="menu">
                 <li role="presentation"><%= link_to "新規投稿", "#" %></li>
-                <li role="presentation"><%= link_to "投稿した記事一覧", "#" %></li>
+                <li role="presentation"><%= link_to "投稿した記事一覧", user_path(current_user) %></li>
                 <li role="presentation"><%= link_to "いいねした記事一覧", "#" %></li>
                 <li role="presentation"><%= link_to "プロフィール編集", edit_user_path(current_user) %></li>
                 <li role="presentation"><%= link_to "ログアウト", logout_path, method: :delete %></li>
