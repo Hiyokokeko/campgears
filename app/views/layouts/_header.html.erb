@@ -15,9 +15,26 @@
       <ul class="nav navbar-nav">
         <li><%= link_to "みんなの投稿", root_path %></li>
         <li><%= link_to "人気ギア", "#" %></li>
-        <li><%= link_to "新規ユーザー登録", new_user_path %></li>
-        <li><%= link_to "ログイン", login_path %></li>
-        <li><%= link_to 'ゲストログイン', "#" %></li>
+          <% if logged_in? %>
+            <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" >
+            <p class="navbar-text "><%= "#{current_user.name}さん" %></p>
+            <span class="caret"></span>
+              <ul class="dropdown-menu" role="menu">
+                <li role="presentation"><%= link_to "新規投稿", "#" %></li>
+                <li role="presentation"><%= link_to "投稿した記事一覧", user_path(current_user) %></li>
+                <li role="presentation"><%= link_to "いいねした記事一覧", "#" %></li>
+                <li role="presentation"><%= link_to "プロフィール編集", edit_user_path(current_user) %></li>
+                <li role="presentation"><%= link_to "ログアウト", logout_path, method: :delete %></li>
+                  <% if current_user.admin? %>
+                    <li role="presentation"><%= link_to "ユーザー一覧", users_path %></li>
+                  <% end %>
+              </ul>
+          <% else %>
+            <li><%= link_to "新規ユーザー登録", new_user_path %></li>
+            <li><%= link_to "ログイン", login_path %></li>
+            <li><%= link_to 'ゲストログイン', guest_login_path, method: :post %></li>
+          <% end %>
       </ul>
     </div>
   </div>

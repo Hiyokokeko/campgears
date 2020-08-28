@@ -1,0 +1,5 @@
+<% provide(:title, "投稿した記事一覧") %>
+<div class="show_user">
+  <li><%= gravatar_for(@user, size: 120) %></li>
+  <li><%= @user.name %>さん</li>
+    <h3>投稿した記事一覧 (<%= @user.pages.count %>)</h3>

@@ -10,6 +10,7 @@ $gray-medium-light: #eaeaea;
   box-sizing:         border-box;
 }
 
+/* 全てに適用 */
 section {
   overflow: auto;
 }
@@ -25,7 +26,6 @@ textarea {
   }
 }
 
-/* 全てに適用 */
 body {
   margin-top: 0;
   padding: 0;
@@ -132,6 +132,28 @@ footer {
   margin-top: auto;
 }
 
+/* デバック */
+.debug_dump {
+  clear: both;
+  float: left;
+  width: 100%;
+  margin-top: 45px;
+  @include box_sizing;
+}
+
+/*gravatarいじらない*/
+.gravatar {
+  margin-right: 0em;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-top: 0em;
+  margin-bottom: 0em;
+}
+.user{
+  margin-top: 0em;
+  margin-bottom: 0em;
+}
+
 /*カテゴリードロップダウンメニュー*/
 .category{
   margin-left: 15em;
@@ -167,6 +189,25 @@ input, textarea, select, .uneditable-input {
   @include box_sizing;
 }
 
+input {
+  height: auto !important;
+}
+#error_explanation {
+  color: #a94442;
+  ul {
+    color: #a94442;
+    margin: 0 0 30px 0;
+  }
+}
+
+.field_with_errors {
+  @extend .has-error;
+  .form-control {
+    color: #a94442;
+    display: table;
+  }
+}
+
 .login{
   .checkbox {
     margin-top: -10px;
@@ -191,5 +232,32 @@ input, textarea, select, .uneditable-input {
   text-align:center;
   .btn{
     width: 50%;
+  }
+}
+
+/*パスワードリセット*/
+.password_reset{
+  margin-top: 2em;
+  margin-left: 15em;
+  margin-right: 15em;
+  text-align:center;
+  .btn{
+    width: 50%;
+  }
+}
+
+/*プロフィール編集*/
+.users_edit{
+  margin-left: 20em;
+  margin-right: 20em;
+  .gravatar_edit{
+  margin-top: 3em;
+  margin-bottom: 2em;
+  text-align: center;
+  border-radius: 50%;
+  object-fit: cover;
+  }
+  .btn{
+    width: 30%;
   }
 }
