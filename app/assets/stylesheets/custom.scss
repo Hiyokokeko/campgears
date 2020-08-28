@@ -235,6 +235,17 @@ input {
   }
 }
 
+/*パスワードリセット*/
+.password_reset{
+  margin-top: 2em;
+  margin-left: 15em;
+  margin-right: 15em;
+  text-align:center;
+  .btn{
+    width: 50%;
+  }
+}
+
 /*プロフィール編集*/
 .users_edit{
   margin-left: 20em;
