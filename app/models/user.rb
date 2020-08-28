@@ -42,9 +42,25 @@ class User < ApplicationRecord
   end
 
   # ユーザーのログイン情報を破棄する
-  # def forget
-  #   update(remember_digest: nil)
-  # end
+  def forget
+    update(remember_digest: nil)
+  end
+
+  # パスワード再設定の属性を設定する
+  def create_reset_digest
+    self.reset_token = User.new_token
+    update(reset_digest: User.digest(reset_token), reset_sent_at: Time.zone.now)
+  end
+
+  # パスワード再設定のメールを送信する
+  def send_password_reset_email
+    UserMailer.password_reset(self).deliver_now
+  end
+
+  # パスワード再設定の期限が切れている場合はtrueを返す
+  def password_reset_expired?
+    reset_sent_at < 2.hours.ago
+  end
 
   private
 
