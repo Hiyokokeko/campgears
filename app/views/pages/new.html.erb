@@ -1,0 +1,10 @@
+<% provide(:title, "新規投稿") %>
+<% provide(:button_text, '投稿する') %>
+<% if logged_in? %>
+  <div class="new_page">
+    <h3>新規投稿</h3>
+    <section class="page_form">
+      <%= render 'shared/page_form' %>
+    </section>
+  </div>
+<% end %>
