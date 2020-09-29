@@ -9,4 +9,6 @@ Rails.application.routes.draw do
   resources :users do
   end
   resources :password_resets,     only: [:new, :create, :edit, :update]
+  resources :pages do
+  end
 end
