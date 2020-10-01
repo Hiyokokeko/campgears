@@ -11,9 +11,9 @@
       </div>
     <%= form.file_field :picture, class: "picture", style: "display:none;", id: "file"%>
     <div class="field">
-      <%= form.label '本のタイトル(100文字以内)：' %>
-      <%= form.text_area :title, placeholder: "タイトルを入力" %>
-      <%= form.label '本の内容やおすすめの理由(800文字以内)：' %>
+      <%= form.label 'キャンプギアのタイトル(100文字以内)：' %>
+      <%= form.text_area :title, placeholder: "キャンプギアを入力" %>
+      <%= form.label 'キャンプギアの内容やおすすめの理由(800文字以内)：' %>
       <%= form.text_area :content, placeholder: "内容を入力", size: "60x6"%>
     </div>
     <%= form.submit yield(:button_text), class: "btn btn-primary" %>
