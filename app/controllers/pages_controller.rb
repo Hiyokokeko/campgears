@@ -38,9 +38,6 @@ class PagesController < ApplicationController
   end
 
   def destroy
-    @page.destroy
-    flash[:success] = '削除されました'
-    redirect_to user_path(@page.user_id)
   end
 
   private
