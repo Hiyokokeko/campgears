@@ -1,0 +1,2 @@
+class PageCategoryRelation < ApplicationRecord
+end
