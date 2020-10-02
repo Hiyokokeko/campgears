@@ -1,17 +1,17 @@
 #カテゴリー
-# Category.create([
-#   { name: '' },
-#   { name: '' },
-#   { name: '' },
-#   { name: '' },
-#   { name: '' },
-#   { name: '' },
-#   { name: '' },
-#   { name: '' },
-#   { name: '' },
-#   { name: '' },
-#   { name: 'その他' }
-# ])
+Category.create([
+  { name: 'テント' },
+  { name: 'タープ' },
+  { name: 'シュラフ' },
+  { name: 'テーブル・チェア' },
+  { name: '調理器具・カトラリー' },
+  { name: '焚火台' },
+  { name: 'ランタン' },
+  { name: 'ペグ・ハンマー・ポール・小物' },
+  { name: 'クーラーボックス' },
+  { name: '新人向け' },
+  { name: 'その他' }
+])
 
 if Rails.env == 'development'
 #ユーザー
