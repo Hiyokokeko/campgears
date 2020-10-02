@@ -1,6 +1,7 @@
 class PagesController < ApplicationController
   before_action :logged_in_user, only: %i[new edit create update destroy]
   before_action :correct_user,   only: %i[edit update destroy]
+  before_action :set_category, only: %i[index new create edit update]
 
   # 投稿一覧/root
   def index
@@ -37,6 +38,9 @@ class PagesController < ApplicationController
   end
 
   def destroy
+    @page.destroy
+    flash[:success] = '削除されました'
+    redirect_to user_path(@page.user_id)
   end
 
   private
@@ -47,5 +51,10 @@ class PagesController < ApplicationController
   def correct_user
     @page = current_user.pages.find_by(id: params[:id])
     redirect_to root_url if @page.nil?
+  end
+
+  # カテゴリーチェックボックス
+  def set_category
+    @categories = Category.all
   end
 end
