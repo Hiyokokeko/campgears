@@ -331,6 +331,53 @@ input {
   }
 }
 
+/*詳細ページ*/
+.panel-default {
+  margin-left: 7em;
+  margin-right: 7em;
+  .panel-heading {
+    background-color: #fafad2;
+    color:$gray-light;
+  }
+  .panel-body {
+    position:relative;
+    .title {
+      text-align: left;
+      font-size: 23px;
+      margin-left: 260px;
+      color: #49653f;
+      padding: 0.5em 0;
+      border-top: solid 3px #49653f;
+      border-bottom: solid 3px #49653f;
+    }
+    .content {
+      top:5em;
+      margin-left: 260px;
+      font-size: 17px;
+      padding: 2em 0;
+    }
+    .pages_show {
+      display: flex;
+      justify-content: flex-end;
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      font-size: 15px;
+  .item {
+    margin-bottom: 0em;
+    margin-right: 1em;
+      .gravatar {
+        margin-right: 0em;
+      }
+      .user {
+        margin-top: 0em;
+        padding-top: 0em;
+      }
+  }
+    }
+  }
+}
+
 /*新規投稿*/
 #img_field {
   font-size: 15px;
