@@ -2,8 +2,12 @@
 <h1>ユーザー一覧</h1>
 
 <div class="text-center">
+<%= will_paginate @pages, :previous_label => ' &lt 前へ', :next_label => '次へ &gt' %>
 
 <ul class="users">
     <%= render @users %>
 </ul>
 
+
+<%= will_paginate @pages, :previous_label => ' &lt 前へ', :next_label => '次へ &gt' %>
+</div>
