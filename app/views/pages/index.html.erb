@@ -9,6 +9,9 @@
       <a href="#" class="btn btn-default" data-toggle="dropdown" role="button" aria-expanded="false">
       カテゴリー別<span class="caret"></span></a>
       <ul class="dropdown-menu" role="menu">
+        <% @categories.each do |c| %>
+        <li role="presentation"><%= link_to "#{c.name}", pages_path(category_id:c.id)%></li>
+      <% end %>
       </ul>
     </li>
   </ul>
