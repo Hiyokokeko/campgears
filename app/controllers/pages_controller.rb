@@ -48,9 +48,17 @@ class PagesController < ApplicationController
   end
 
   def edit
+    @page = Page.find(params[:id])
   end
 
   def update
+    @page = Page.find(params[:id])
+    if @page.update(page_params)
+      flash[:success] = '編集しました'
+      redirect_to @page
+    else
+      render 'edit'
+    end
   end
 
   def destroy
