@@ -1,10 +1,11 @@
 FROM ruby:2.5.8
 
 RUN apt-get update -qq && \
-    apt-get install -y build-essential \ 
-                       libpq-dev \  
-                       nodejs \  
-                       imagemagick 
+    apt-get install -y build-essential \
+    libpq-dev \
+    nodejs \
+    imagemagick \
+    mariadb-client
 
 RUN mkdir /campgears
 WORKDIR /campgears
