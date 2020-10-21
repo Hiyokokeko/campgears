@@ -16,6 +16,14 @@
       <%= form.label 'キャンプギアの内容やおすすめの理由(800文字以内)：' %>
       <%= form.text_area :content, placeholder: "内容を入力", size: "60x6"%>
     </div>
+    <%= form.label 'カテゴリー：'%>
+      <!--categoryのidリストを渡す-->
+      <%= form.collection_check_boxes(:category_ids, @categories, :id, :name) do |c|%>
+        <label class="checkbox_inline">
+        <%= c.check_box  %>
+        <%= c.text %>
+        </label>
+      <% end %>
     <%= form.submit yield(:button_text), class: "btn btn-primary" %>
   <% end %>
 </div>
