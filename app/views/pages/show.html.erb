@@ -1,7 +1,9 @@
 <% provide(:title, "投稿詳細") %>
 <div class="panel panel-default">
 	<div class="panel-heading">
-
+    <% @page.categories.each do |category| %>
+      <span class="label label-default"><%= category.name %></span>
+    <% end %>
   </div>
   <div class="panel-body">
   <img class="image"><%= image_tag @page.picture.url, alt: '', align:"left",size: '250x300'%></img>

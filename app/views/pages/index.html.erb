@@ -10,8 +10,8 @@
       カテゴリー別<span class="caret"></span></a>
       <ul class="dropdown-menu" role="menu">
         <% @categories.each do |c| %>
-        <li role="presentation"><%= link_to "#{c.name}", pages_path(category_id:c.id)%></li>
-      <% end %>
+          <li role="presentation"><%= link_to "#{c.name}", pages_path(category_id:c.id)%></li>
+        <% end %>
       </ul>
     </li>
   </ul>
@@ -24,5 +24,12 @@
       <% end %>
     </form>
   </div>
+</div>
+
+<div class="pages">
+  <%= render @pages %>
+</div>
+<div class="text-center">
+  <%= will_paginate @pages, :previous_label => ' &lt 前へ', :next_label => '次へ &gt' %>
 </div>
 
