@@ -20,6 +20,7 @@ class PagesController < ApplicationController
 
   def show
     @page = Page.find_by(id: params[:id])
+    @comment = Comment.new
     return unless @page.nil?
 
     flash[:success] = 'そのページは削除されています'
