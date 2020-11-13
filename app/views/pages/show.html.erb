@@ -29,3 +29,16 @@
   </div>
 </div>
 </div>
+
+<div class="comment">
+  <div class="col-md-7">
+  <h4>コメント</h4>
+    <%= render partial: 'comments/index', locals: { comments: @page.comments } %>
+  </div>
+  <aside class="col-md-4 col-md-offset-1">
+  <% if logged_in? %>
+    <%= render partial: 'comments/form', locals: { comment: @comment, page: @page } %>
+  <% end %>
+  </aside>
+  </div>
+</div>

@@ -1,3 +1,46 @@
-// Place all the styles related to the comments controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+/*コメント機能*/
+
+.comment {
+  margin-right: 7em;
+  margin-left: 7em;
+}
+
+.comment_list {
+  overflow: hidden;
+  margin-bottom: 5px;
+  padding: 5px;
+  border-top: 1px solid #999;
+  .comment_user {
+    float: left;
+    width: 60px;
+    height: 60px;
+  }
+  .commnet_user img {
+    max-width: 100%;
+    vertical-align: top;
+  }
+
+  .text_content {
+    margin-left: 0px;
+    width: 100%;
+    h2 {
+      text-align: left;
+      margin-bottom: 0em;
+      font-size: 13px;
+      color: rgb(55, 55,55);
+      margin-top: 5px;
+    }
+    p {
+      text-align: left;
+      margin-bottom: 0em;
+      font-size: 12px;
+    }
+    p.text_delete {
+      font-size: 12px;
+      text-align: right;
+    }
+  }
+}
