@@ -62,6 +62,11 @@ class User < ApplicationRecord
     reset_sent_at < 2.hours.ago
   end
 
+  # 投稿一覧
+  def feed
+    pages
+  end
+
   private
 
   # メールアドレスをすべて小文字にする

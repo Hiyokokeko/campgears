@@ -1,0 +1,8 @@
+<% provide(:title, "投稿の編集") %>
+<% provide(:button_text, '投稿する') %>
+<% if logged_in? %>
+  <div class="edit_page">
+    <h3>編集ページ</h3>
+    <%= render 'shared/page_form' %>
+  </div>
+<% end %>

@@ -14,6 +14,7 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
+    @pages = @user.pages.paginate(page: params[:page])
   end
 
   # ユーザーがいいねした記事一覧

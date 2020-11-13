@@ -1,0 +1,31 @@
+<% provide(:title, "投稿詳細") %>
+<div class="panel panel-default">
+	<div class="panel-heading">
+    <% @page.categories.each do |category| %>
+      <span class="label label-default"><%= category.name %></span>
+    <% end %>
+  </div>
+  <div class="panel-body">
+  <img class="image"><%= image_tag @page.picture.url, alt: '', align:"left",size: '250x300'%></img>
+  <div class="title"><%= @page.title %></div>
+  <div class="content"><%= @page.content %></div>
+  <div class="pages_show">
+  <div class="item">
+
+  </div>
+  <% if current_user?(@page.user) %>
+  <div class="item">
+  <%= link_to "編集", edit_page_path(@page)	 %>
+        <%= link_to "削除", @page, method: :delete,
+                                        data: { confirm: "削除しますか？" } %>
+                                        </div>
+  <% end %>
+  <div class="item">
+      <%= gravatar_for(@page.user, size: 20) %>
+      <span class="user"><%= link_to @page.user.name, @page.user %></span>
+    </div>
+
+    <div class="item"><%= time_ago_in_words(@page.created_at) %>前に投稿</div>
+  </div>
+</div>
+</div>

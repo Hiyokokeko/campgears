@@ -10,7 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_20_055147) do
+ActiveRecord::Schema.define(version: 2020_10_05_122042) do
+
+  create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "page_category_relations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "page_id"
+    t.bigint "category_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_page_category_relations_on_category_id"
+    t.index ["page_id"], name: "index_page_category_relations_on_page_id"
+  end
 
   create_table "pages", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "title"
@@ -18,6 +33,7 @@ ActiveRecord::Schema.define(version: 2020_08_20_055147) do
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "picture"
     t.index ["user_id", "created_at"], name: "index_pages_on_user_id_and_created_at"
     t.index ["user_id"], name: "index_pages_on_user_id"
   end
@@ -35,5 +51,7 @@ ActiveRecord::Schema.define(version: 2020_08_20_055147) do
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
+  add_foreign_key "page_category_relations", "categories"
+  add_foreign_key "page_category_relations", "pages"
   add_foreign_key "pages", "users"
 end
