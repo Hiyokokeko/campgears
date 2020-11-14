@@ -1,5 +1,6 @@
 class CommentsController < ApplicationController
   before_action :set_page
+
   def create
     @comment = @page.comments.build(comment_params)
     @comment.user_id = current_user.id
@@ -8,7 +9,9 @@ class CommentsController < ApplicationController
   end
 
   def destroy
-
+    @comment = current_user.comments.find_by(id: params[:id])
+    @comment.destroy
+    render 'pages/show'
   end
 
   private
