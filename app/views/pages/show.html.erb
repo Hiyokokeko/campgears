@@ -11,7 +11,9 @@
   <div class="content"><%= @page.content %></div>
   <div class="pages_show">
   <div class="item">
-
+  <span id="#page-<%= @page.id %> .like">
+    <%= render partial: 'likes/like', locals: {page: @page } %>
+  </span>
   </div>
   <% if current_user?(@page.user) %>
   <div class="item">
