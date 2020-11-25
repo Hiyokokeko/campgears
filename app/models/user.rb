@@ -67,6 +67,19 @@ class User < ApplicationRecord
     pages
   end
 
+  def like(page)
+    likes.find_or_create_by(page_id: page.id)
+  end
+
+  def unlike(page)
+    like = likes.find_by(page_id: page.id)
+    like&.destroy
+  end
+
+  def like?(page)
+    like_pages.include?(page)
+  end
+
   private
 
   # メールアドレスをすべて小文字にする

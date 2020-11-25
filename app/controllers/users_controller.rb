@@ -19,6 +19,8 @@ class UsersController < ApplicationController
 
   # ユーザーがいいねした記事一覧
   def like_pages
+    @like_pages = Like.where(user_id: params[:id])
+    @pages = @user.like_pages.paginate(page: params[:page])
   end
 
   # GET /users/new
