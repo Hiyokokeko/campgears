@@ -1,0 +1,14 @@
+<% provide(:title, "いいねした記事一覧") %>
+<% if @user.like_pages.any? %>
+  <div class="like_pages">
+    <li><%= gravatar_for(@user, size: 120) %></li>
+    <li><%= @user.name %>さん</li>
+      <h3>いいねした記事一覧</h3>
+        <ol class="pages">
+          <%= render @pages %>
+        </ol>
+          <div class="text-center">
+            <%= will_paginate @pages, :previous_label => ' &lt 前へ', :next_label => '次へ &gt' %>
+          </div>
+  </div>
+<% end %>

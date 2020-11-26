@@ -438,6 +438,26 @@ input {
   margin-right: 15em;
 }
 
+/*いいねした投稿一覧ページ*/
+.like_pages {
+  margin-left: 7em;
+  margin-right: 7em;
+  h3{
+    text-align: center;
+  }
+  li{
+    font-size: 2em;
+    list-style-type: none;
+    text-align: center;
+  }
+}
+
+.rank {
+  ul{
+    text-align: center;
+  }
+}
+
 /*カテゴリードロップダウンメニュー*/
 .category{
   margin-left: 15em;
