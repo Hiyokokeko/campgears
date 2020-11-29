@@ -3,6 +3,11 @@ class PagesController < ApplicationController
   before_action :correct_user,   only: %i[edit update destroy]
   before_action :set_category, only: %i[index new create edit update]
 
+  # いいね数順のランキング
+  def rank
+    @all_ranks = Page.create_all_ranks
+  end
+
   # 投稿一覧/root
   # カテゴリー分け
   def index
