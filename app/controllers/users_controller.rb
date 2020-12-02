@@ -110,5 +110,4 @@ class UsersController < ApplicationController
 
     redirect_to root_path, alert: 'ゲストユーザーの変更・削除はできません。'
   end
-
 end

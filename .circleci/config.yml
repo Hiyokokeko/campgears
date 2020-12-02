@@ -11,6 +11,7 @@ executors:
         environment:
           MYSQL_ROOT_PASSWORD: 'password'
           MYSQL_DATABASE: campgears_test
+
 commands:
   setup:
     steps:
