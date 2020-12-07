@@ -1,0 +1,76 @@
+inherit_from: .rubocop_todo.yml
+
+require:
+  - rubocop-rails
+
+AllCops:
+  TargetRubyVersion: 2.5.8
+  # 除外するディレクトリ（自動生成されたファイル）
+  Exclude:
+    - 'config.ru'
+    - 'bin/**'
+    - 'lib/**'
+    - 'db/**/*'
+    - 'config/**/*'
+    - 'script/**/*'
+    - 'Gemfile'
+    - !ruby/regexp /old_and_unused\.rb$/
+
+# Rspecの行数制限を無視
+Metrics/BlockLength:
+  Exclude:
+    - 'spec/**/*'
+
+# 日本語でのコメントを許可
+AsciiComments:
+  Enabled: false
+
+# クラスのコメント必須を無視
+Documentation:
+  Enabled: false
+
+# モジュール名::クラス名の定義を許可
+ClassAndModuleChildren:
+  Enabled: false
+
+# 文字リテラルのイミュータブル宣言を無視（freezeになるのはRuby3以降）
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+# メソッドの長さ
+Metrics/MethodLength:
+  Max: 15
+
+# メソッド名に「set_」「get_」を許可
+AccessorMethodName:
+  Enabled: false
+
+Metrics/AbcSize:
+  Max: 20
+
+Layout/LineLength:
+  Enabled: false
+
+Rails/HelperInstanceVariable:
+  Enabled: false
+
+Style/HashEachMethods:
+  Enabled: true
+
+Style/HashTransformKeys:
+  Enabled: true
+
+Style/HashTransformValues:
+  Enabled: true
+
+Layout/SpaceAroundMethodCallOperator:
+  Enabled: true
+
+Lint/RaiseException:
+  Enabled: true
+
+Lint/StructNewOverride:
+  Enabled: true
+
+Style/ExponentialNotation:
+  Enabled: true

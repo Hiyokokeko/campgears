@@ -29,21 +29,20 @@ class UsersController < ApplicationController
   end
 
   # GET /users/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /users
   # POST /users.json
   def create
     @user = User.new(user_params)
     respond_to do |format|
-    if @user.save
-      log_in @user
-      format.html { redirect_to root_url, notice: 'アカウント登録が完了しました' }
-      format.json { render :show, status: :created, location: @user }
-    else
-      format.html { render :new }
-      format.json { render json: @user.errors, status: :unprocessable_entity }
+      if @user.save
+        log_in @user
+        format.html { redirect_to root_url, notice: 'アカウント登録が完了しました' }
+        format.json { render :show, status: :created, location: @user }
+      else
+        format.html { render :new }
+        format.json { render json: @user.errors, status: :unprocessable_entity }
       end
     end
   end
