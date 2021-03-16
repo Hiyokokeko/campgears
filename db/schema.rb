@@ -10,12 +10,32 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_05_122042) do
+ActiveRecord::Schema.define(version: 2020_11_16_123637) do
 
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "content"
+    t.bigint "user_id"
+    t.bigint "page_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["page_id"], name: "index_comments_on_page_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
+  end
+
+  create_table "likes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "page_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["page_id"], name: "index_likes_on_page_id"
+    t.index ["user_id", "page_id"], name: "index_likes_on_user_id_and_page_id", unique: true
+    t.index ["user_id"], name: "index_likes_on_user_id"
   end
 
   create_table "page_category_relations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -34,6 +54,7 @@ ActiveRecord::Schema.define(version: 2020_10_05_122042) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "picture"
+    t.integer "likes_count", default: 0, null: false
     t.index ["user_id", "created_at"], name: "index_pages_on_user_id_and_created_at"
     t.index ["user_id"], name: "index_pages_on_user_id"
   end
@@ -51,6 +72,8 @@ ActiveRecord::Schema.define(version: 2020_10_05_122042) do
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
+  add_foreign_key "comments", "pages"
+  add_foreign_key "comments", "users"
   add_foreign_key "page_category_relations", "categories"
   add_foreign_key "page_category_relations", "pages"
   add_foreign_key "pages", "users"

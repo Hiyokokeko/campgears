@@ -4,8 +4,7 @@ class PasswordResetsController < ApplicationController
   before_action :check_expiration, only: %i[edit update]
   before_action :check_guest, only: :create
 
-  def new
-  end
+  def new; end
 
   def create
     @user = User.find_by(email: params[:password_reset][:email].downcase)
@@ -20,8 +19,7 @@ class PasswordResetsController < ApplicationController
     end
   end
 
-  def edit
-  end
+  def edit; end
 
   def update
     if params[:user][:password].empty?

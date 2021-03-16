@@ -1,0 +1,7 @@
+<% provide(:title, "人気のギア") %>
+<h3>人気のギア</h3>
+<div class="pages">
+<% @all_ranks.each do |page| %>
+  <%= render partial: 'pages/page', locals: {page: page } %>
+<% end %>
+</div>

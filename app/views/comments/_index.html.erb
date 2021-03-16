@@ -1,0 +1,18 @@
+<% comments.each do |comment| %>
+  <% unless comment.id.nil? %>
+
+  <div class="comment_list">
+    <div class="comment_use">
+      <%= gravatar_for(comment.user, size: 50) %>
+    </div>
+    <div class="text_content">
+      <p class="text_date"><%= link_to comment.user.name, comment.user %></p>
+      <h2><%= comment.content %></h2>
+        <% if current_user?(comment.user) %>
+        <p class="text_delete"><%= link_to '削除', page_comment_path(comment.page_id, comment.id), method: :delete %></p>
+        <% end %>
+    </div>
+  </div>
+
+  <% end %>
+<% end %>

@@ -5,6 +5,9 @@
   <% end %>
   <h2 class="title"><%= link_to page.title, page_path(page) %></h2>
   <div class="user_date">
+    <span id="#page-<%= page.id %> .like">
+      <%= render partial: 'likes/like', locals: {page: page } %>
+    </span>
     <section class="user_info">
       <%= gravatar_for(page.user, size: 20) %>
       <span class="user"><%= link_to page.user.name, page.user %></span>

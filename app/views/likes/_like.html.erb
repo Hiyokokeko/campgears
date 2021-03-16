@@ -1,0 +1,15 @@
+<span class="like">
+  <% if page.liked_by.include?(current_user) %>
+    <%= link_to page_like_path(page_id: page.id ,id: page.likes[0].id), local: true, method: :delete do %>
+      <%= button_tag(class: "btn btn-default btn-xs") do %>
+        <%= content_tag :span, "#{page.likes_count}", class: "glyphicon glyphicon-heart" %>
+      <% end %>
+    <% end %>
+  <% else %>
+      <%= link_to page_likes_path(page.id), method: :page, local: true do %>
+      <%= button_tag(class: "btn btn-default btn-xs") do %>
+        <%= content_tag :span, "#{page.likes_count}", class: "glyphicon glyphicon-heart-empty" %>
+      <% end %>
+    <% end %>
+  <% end %>
+</span>

@@ -3,6 +3,11 @@ class PagesController < ApplicationController
   before_action :correct_user,   only: %i[edit update destroy]
   before_action :set_category, only: %i[index new create edit update]
 
+  # いいね数順のランキング
+  def rank
+    @all_ranks = Page.create_all_ranks
+  end
+
   # 投稿一覧/root
   # カテゴリー分け
   def index
@@ -20,6 +25,7 @@ class PagesController < ApplicationController
 
   def show
     @page = Page.find_by(id: params[:id])
+    @comment = Comment.new
     return unless @page.nil?
 
     flash[:success] = 'そのページは削除されています'
@@ -62,11 +68,15 @@ class PagesController < ApplicationController
   end
 
   def destroy
+    @page.destroy
+    flash[:success] = '削除されました'
+    redirect_to user_path(@page.user_id)
   end
 
   private
+
   def page_params
-    params.require(:page).permit(:title, :content, :picture)
+    params.require(:page).permit(:title, :content, :picture, category_ids: [])
   end
 
   def correct_user

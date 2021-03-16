@@ -11,7 +11,9 @@
   <div class="content"><%= @page.content %></div>
   <div class="pages_show">
   <div class="item">
-
+  <span id="#page-<%= @page.id %> .like">
+    <%= render partial: 'likes/like', locals: {page: @page } %>
+  </span>
   </div>
   <% if current_user?(@page.user) %>
   <div class="item">
@@ -28,4 +30,17 @@
     <div class="item"><%= time_ago_in_words(@page.created_at) %>前に投稿</div>
   </div>
 </div>
+</div>
+
+<div class="comment">
+  <div class="col-md-7">
+  <h4>コメント</h4>
+    <%= render partial: 'comments/index', locals: { comments: @page.comments } %>
+  </div>
+  <aside class="col-md-4 col-md-offset-1">
+  <% if logged_in? %>
+    <%= render partial: 'comments/form', locals: { comment: @comment, page: @page } %>
+  <% end %>
+  </aside>
+  </div>
 </div>

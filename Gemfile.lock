@@ -47,6 +47,8 @@ GEM
     after_commit_action (1.1.0)
       activerecord (>= 3.0.0)
       activesupport (>= 3.0.0)
+    airbrussh (1.4.0)
+      sshkit (>= 1.6.1, != 1.7.0)
     arel (9.0.0)
     ast (2.4.1)
     autoprefixer-rails (9.7.6)
@@ -62,6 +64,23 @@ GEM
       will_paginate
     builder (3.2.4)
     byebug (11.1.3)
+    capistrano (3.14.1)
+      airbrussh (>= 1.0.0)
+      i18n
+      rake (>= 10.0.0)
+      sshkit (>= 1.9.0)
+    capistrano-bundler (2.0.1)
+      capistrano (~> 3.1)
+    capistrano-rails (1.6.1)
+      capistrano (~> 3.1)
+      capistrano-bundler (>= 1.1, < 3)
+    capistrano-rbenv (2.2.0)
+      capistrano (~> 3.1)
+      sshkit (~> 1.3)
+    capistrano3-puma (3.1.1)
+      capistrano (~> 3.7)
+      capistrano-bundler
+      puma (~> 3.4)
     capybara (3.32.2)
       addressable
       mini_mime (>= 0.1.3)
@@ -93,6 +112,7 @@ GEM
     crass (1.0.6)
     diff-lcs (1.3)
     erubi (1.9.0)
+    excon (0.78.1)
     execjs (2.7.0)
     factory_bot (4.10.0)
       activesupport (>= 3.0.0)
@@ -102,6 +122,23 @@ GEM
     faker (2.13.0)
       i18n (>= 1.6, < 2)
     ffi (1.13.1)
+    fog-aws (3.7.0)
+      fog-core (~> 2.1)
+      fog-json (~> 1.1)
+      fog-xml (~> 0.1)
+      ipaddress (~> 0.8)
+    fog-core (2.2.3)
+      builder
+      excon (~> 0.71)
+      formatador (~> 0.2)
+      mime-types
+    fog-json (1.2.0)
+      fog-core
+      multi_json (~> 1.10)
+    fog-xml (0.1.3)
+      fog-core
+      nokogiri (>= 1.5.11, < 2.0.0)
+    formatador (0.2.5)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
     i18n (1.8.3)
@@ -109,6 +146,7 @@ GEM
     image_processing (1.11.0)
       mini_magick (>= 4.9.5, < 5)
       ruby-vips (>= 2.0.17, < 3)
+    ipaddress (0.8.3)
     jbuilder (2.10.0)
       activesupport (>= 5.0.0)
     jquery-rails (4.4.0)
@@ -129,13 +167,20 @@ GEM
     marcel (0.3.3)
       mimemagic (~> 0.3.2)
     method_source (1.0.0)
+    mime-types (3.3.1)
+      mime-types-data (~> 3.2015)
+    mime-types-data (3.2020.1104)
     mimemagic (0.3.5)
     mini_magick (4.10.1)
     mini_mime (1.0.2)
     mini_portile2 (2.4.0)
     minitest (5.14.1)
     msgpack (1.3.3)
+    multi_json (1.15.0)
     mysql2 (0.5.3)
+    net-scp (3.0.0)
+      net-ssh (>= 2.6.5, < 7.0.0)
+    net-ssh (6.1.0)
     nio4r (2.5.2)
     nokogiri (1.10.9)
       mini_portile2 (~> 2.4.0)
@@ -251,11 +296,16 @@ GEM
       actionpack (>= 4.0)
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
+    sshkit (1.21.1)
+      net-scp (>= 1.1.2)
+      net-ssh (>= 2.8.0)
     thor (1.0.1)
     thread_safe (0.3.6)
     tilt (2.0.10)
     tzinfo (1.2.7)
       thread_safe (~> 0.1)
+    tzinfo-data (1.2020.4)
+      tzinfo (>= 1.0.0)
     uglifier (4.2.0)
       execjs (>= 0.3.0, < 3)
     unicode-display_width (1.7.0)
@@ -280,12 +330,18 @@ DEPENDENCIES
   bootstrap-sass (= 3.4.1)
   bootstrap-will_paginate (~> 1.0.0)
   byebug
+  capistrano
+  capistrano-bundler
+  capistrano-rails
+  capistrano-rbenv
+  capistrano3-puma
   capybara (>= 2.15)
   carrierwave
   coffee-rails (~> 4.2)
   counter_culture (~> 1.8)
   factory_bot_rails (~> 4.10.0)
   faker
+  fog-aws
   jbuilder (~> 2.5)
   jquery-rails
   launchy (~> 2.4.3)

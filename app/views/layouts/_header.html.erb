@@ -14,7 +14,7 @@
     <div class="collapse navbar-collapse" id="navbarEexample">
       <ul class="nav navbar-nav">
         <li><%= link_to "みんなの投稿", root_path %></li>
-        <li><%= link_to "人気ギア", "#" %></li>
+        <li><%= link_to "人気ギア", "/rank" %></li>
           <% if logged_in? %>
             <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" >
@@ -23,7 +23,7 @@
               <ul class="dropdown-menu" role="menu">
                 <li role="presentation"><%= link_to "新規投稿", new_page_path %></li>
                 <li role="presentation"><%= link_to "投稿した記事一覧", user_path(current_user) %></li>
-                <li role="presentation"><%= link_to "いいねした記事一覧", "#" %></li>
+                <li role="presentation"><%= link_to "いいねした記事一覧", like_pages_user_path(current_user) %></li>
                 <li role="presentation"><%= link_to "プロフィール編集", edit_user_path(current_user) %></li>
                 <li role="presentation"><%= link_to "ログアウト", logout_path, method: :delete %></li>
                   <% if current_user.admin? %>

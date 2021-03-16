@@ -47,6 +47,11 @@ group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'factory_bot_rails', '~> 4.10.0'
   gem 'rspec-rails', '~> 4.0.0'
+  gem 'capistrano'
+  gem 'capistrano-bundler'
+  gem 'capistrano-rails'
+  gem 'capistrano-rbenv'
+  gem 'capistrano3-puma'
 end
 
 group :development do
@@ -61,6 +66,10 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
 
+group :production do
+  gem 'fog-aws'
+end
+
 group :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '>= 2.15'
@@ -71,4 +80,4 @@ group :test do
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+gem 'tzinfo-data'
